@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV GO_VERSION=1.13.5
 
 RUN apt-get update \
-    && apt-get install wget -y \
+    && apt-get install wget gcc -y \
     && apt-get install awscli -y
 
 # Install golang
