@@ -15,6 +15,9 @@ RUN wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz \
     && mkdir /golang
 
 ENV GOROOT=/usr/local/go
+ENV GOBIN=${GOROOT}/bin
 ENV GOPATH=/golang
-ENV PATH=${GOROOT}/bin:$PATH
+ENV PATH=${GOBIN}:$PATH
 ENV DOCKER_IN_DOCKER=start
+
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
