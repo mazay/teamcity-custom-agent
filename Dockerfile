@@ -5,7 +5,7 @@ ENV GO_VERSION=1.13.5
 
 RUN apt-get update \
     && apt-get install wget gcc -y \
-    && apt-get install awscli -y
+    && apt-get install awscli zip -y
 
 # Install golang
 RUN wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz \
