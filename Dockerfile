@@ -2,6 +2,7 @@ FROM jetbrains/teamcity-agent:2019.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV GO_VERSION=1.13.5
+ENV HUB_VERSION=2.13.0
 
 RUN apt-get update \
     && apt-get install wget gcc -y \
@@ -20,4 +21,11 @@ ENV GOPATH=/golang
 ENV PATH=${GOBIN}:$PATH
 ENV DOCKER_IN_DOCKER=start
 
+# Install dep
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+# Install hub
+RUN wget https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz \
+    && tar zxvf hub-linux-amd64-${HUB_VERSION}.tgz \
+    && ./hub-linux-amd64-${HUB_VERSION}/install \
+    && rm -rf hub-linux-amd64-${HUB_VERSION} hub-linux-amd64-${HUB_VERSION}.tgz
