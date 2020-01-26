@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-agent:2019.2
+FROM jetbrains/teamcity-agent:2019.2.1-linux
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV GO_VERSION=1.13.5
