@@ -1,8 +1,8 @@
 FROM jetbrains/teamcity-agent:2019.2.2-linux
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV GO_VERSION=1.13.5
-ENV HUB_VERSION=2.13.0
+ENV GO_VERSION=1.14.1
+ENV HUB_VERSION=2.14.2
 
 RUN apt-get update \
     && apt-get install wget gcc -y \
