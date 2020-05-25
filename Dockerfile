@@ -1,5 +1,7 @@
 FROM jetbrains/teamcity-agent:2020.1-linux
 
+USER root
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV GO_VERSION=1.14.1
 ENV HUB_VERSION=2.14.2
@@ -29,3 +31,5 @@ RUN wget https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-lin
     && tar zxvf hub-linux-amd64-${HUB_VERSION}.tgz \
     && ./hub-linux-amd64-${HUB_VERSION}/install \
     && rm -rf hub-linux-amd64-${HUB_VERSION} hub-linux-amd64-${HUB_VERSION}.tgz
+
+USER buildagent
