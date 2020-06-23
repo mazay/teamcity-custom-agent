@@ -23,6 +23,9 @@ ENV GOPATH=/golang
 ENV PATH=${GOBIN}:$PATH
 ENV DOCKER_IN_DOCKER=start
 
+# Install golint
+RUN go get -u golang.org/x/lint/golint
+
 # Install dep
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
