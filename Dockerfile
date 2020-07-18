@@ -42,5 +42,5 @@ USER buildagent
 # Install buildx plugin
 RUN mkdir -p ~/.docker/cli-plugins \
     && wget https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64 \
-    && -O ~/.docker/cli-plugins/docker-buildx \
+    -O ~/.docker/cli-plugins/docker-buildx \
     && chmod a+x ~/.docker/cli-plugins/docker-buildx
