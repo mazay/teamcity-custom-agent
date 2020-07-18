@@ -9,7 +9,8 @@ ENV BUILDX_VERSION=v0.4.1
 
 RUN apt-get update \
     && apt-get install wget gcc -y \
-    && apt-get install awscli zip -y
+    && apt-get install awscli zip -y \
+    && apt-get clean
 
 # Install golang
 RUN wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz \
@@ -40,6 +41,6 @@ USER buildagent
 
 # Install buildx plugin
 RUN mkdir -p ~/.docker/cli-plugins \
-    wget https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64 \
-    -O ~/.docker/cli-plugins/docker-buildx \
-    chmod a+x ~/.docker/cli-plugins/docker-buildx
+    && wget https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64 \
+    && -O ~/.docker/cli-plugins/docker-buildx \
+    && chmod a+x ~/.docker/cli-plugins/docker-buildx
