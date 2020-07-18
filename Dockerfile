@@ -8,7 +8,7 @@ ENV HUB_VERSION=2.14.2
 ENV BUILDX_VERSION=v0.4.1
 
 RUN apt-get update \
-    && apt-get install wget gcc -y \
+    && apt-get install wget gcc make -y \
     && apt-get install awscli zip -y \
     && apt-get clean
 
