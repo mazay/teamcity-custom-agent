@@ -5,6 +5,7 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive
 ENV GO_VERSION=1.14.1
 ENV HUB_VERSION=2.14.2
+ENV BUILDX_VERSION=v0.4.1
 
 RUN apt-get update \
     && apt-get install wget gcc -y \
@@ -36,3 +37,8 @@ RUN wget https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-lin
     && rm -rf hub-linux-amd64-${HUB_VERSION} hub-linux-amd64-${HUB_VERSION}.tgz
 
 USER buildagent
+
+# Install buildx plugin
+RUN wget https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64 \
+    -O ~/.docker/cli-plugins/docker-buildx \
+    chmod a+x ~/.docker/cli-plugins/docker-buildx
