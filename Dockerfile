@@ -37,8 +37,6 @@ RUN wget https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-lin
     && ./hub-linux-amd64-${HUB_VERSION}/install \
     && rm -rf hub-linux-amd64-${HUB_VERSION} hub-linux-amd64-${HUB_VERSION}.tgz
 
-USER buildagent
-
 # Install buildx plugin
 RUN mkdir -p ~/.docker/cli-plugins \
     && wget https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-amd64 \
