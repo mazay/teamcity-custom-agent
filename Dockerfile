@@ -3,7 +3,7 @@ FROM jetbrains/teamcity-agent:2020.1.4-linux
 USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV GO_VERSION=1.14.1
+ENV GO_VERSION=1.15.2
 ENV HUB_VERSION=2.14.2
 ENV BUILDX_VERSION=v0.4.2
 
