@@ -1,4 +1,4 @@
-FROM jetbrains/teamcity-agent:2020.1.4-linux
+FROM jetbrains/teamcity-agent:2020.1.5-linux
 
 USER root
 
