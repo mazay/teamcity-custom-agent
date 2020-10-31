@@ -9,7 +9,7 @@ ENV BUILDX_VERSION=v0.4.2
 
 RUN apt-get update \
     && apt-get install wget gcc make -y \
-    && apt-get install awscli zip -y \
+    && apt-get install awscli zip qemu-user-static -y \
     && apt-get clean
 
 # Install golang
